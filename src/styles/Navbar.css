@@ -13,6 +13,17 @@ header nav{
   justify-content: space-between;
 }
 
+header nav .left{
+  display: flex;
+  align-items: center;
+}
+
+header nav .left .burger{
+  display: none;
+  font-size: 25px;
+  cursor: pointer;
+}
+
 header nav .left .settings{
   font-size: 2em;
   cursor: pointer;
@@ -53,4 +64,26 @@ header nav .right .login{
 header nav .right span{
   font-size: 1.3em;
   cursor: pointer;
+}
+
+@media screen and (max-width: 777px){
+  header nav .right{
+    display: none;
+  }
+
+  header nav .mid input{
+    width: 200px;
+  }
+}
+
+@media screen and (max-width: 600px){
+  header nav .left .burger{
+    position: absolute;
+    z-index: 2000;
+    display: block;
+  }
+
+  header nav .left .settings{
+    display: none;
+  }
 }

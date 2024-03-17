@@ -5,6 +5,7 @@ export const Films = () => {
   const movies = useMovieStore((state) => state.movies as any)
   const genreSelected = useMovieStore((state) => state.genreSelected)
   const setHoverCard = useMovieStore((state) => state.setHoverCard)
+  const search = useMovieStore((state) => state.search)
 
   const popularFilter = useMovieStore((state) => state.popularFilter)
   const topRatedFilter = useMovieStore((state) => state.topRatedFilter)
@@ -17,6 +18,8 @@ export const Films = () => {
       return [...movies.results]?.sort((a, b) => b.vote_average - a.vote_average)
     } else if(popularFilter && topRatedFilter) {
       return [...movies.results]?.sort((a, b) => b.popularity - a.popularity).sort((a, b) => b.vote_average - a.vote_average)
+    } else if (search) {
+      return [...movies.results]?.filter((movie: any) => movie.title.toLowerCase().includes(search.toLowerCase()))
     } else {
       return movies.results
     }

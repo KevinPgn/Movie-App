@@ -64,3 +64,31 @@
 ::-webkit-scrollbar-thumb:hover {
   background: #555; 
 }
+
+@media screen and (max-width: 600px){
+  .sidebar{
+    width: 100%;
+    z-index: 1111;
+    text-align: center;
+    position: fixed;
+    transform: translateX(-100%);
+    transition: all 0.3s;
+    top: 0;
+    left: 0;
+    height: 100%;
+  }
+
+  .sidebar .logo{
+    text-align: center;
+  }
+
+  .sidebar ul li{
+    text-align: center;
+  }
+
+  .sidebar.active{
+    transform: translateX(0);
+  }
+
+
+}

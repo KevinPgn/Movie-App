@@ -1,6 +1,7 @@
 import "../styles/Sidebar.css"
 import genre from "../data/Genre"
 import { useMovieStore } from "../store/Movie"
+import { useMenuBurgerStore } from "../store/MenuBurger"
 
 export const Sidebar = () => {
   const setGenreSelected = useMovieStore((state) => state.setGenreSelected)
@@ -9,6 +10,7 @@ export const Sidebar = () => {
   const setPopularFilter = useMovieStore((state) => state.setPopularFilter)
   const topRatedFilter = useMovieStore((state) => state.topRatedFilter)
   const setTopRatedFilter = useMovieStore((state) => state.setTopRatedFilter)
+  const menuBurger = useMenuBurgerStore((state) => state.menuBurger)
   
   const popularFilterFunc = () => {
     setPopularFilter(popularFilter)
@@ -27,7 +29,7 @@ export const Sidebar = () => {
   }
 
   return <>
-    <section className="sidebar">
+    <section className={menuBurger ? "sidebar active":"sidebar"}>
       <div className="logo">FilmEmpire</div>
       <h3>Catégories</h3>
       <ul>

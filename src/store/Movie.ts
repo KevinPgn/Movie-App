@@ -8,6 +8,7 @@ interface MovieState {
   hoverCard: [{ backdrop: string, title: string, overview: string }] | any;
   popularFilter: boolean;
   topRatedFilter: boolean;
+  search: string;
 
   addMovie: (movie: MovieState | Partial<MovieState>) => void;
   addGenre: (genre: MovieState | Partial<MovieState>) => void;
@@ -15,6 +16,7 @@ interface MovieState {
   setHoverCard: (backdrop: string, title: string, overview: string) => void;
   setPopularFilter: (popular: boolean) => void;
   setTopRatedFilter: (topRated: boolean) => void;
+  setSearch: (search: string) => void;
 }
 
 export const useMovieStore = create<MovieState>((set) => ({
@@ -23,6 +25,8 @@ export const useMovieStore = create<MovieState>((set) => ({
   genres: genre,
   popularFilter: false,
   topRatedFilter: false,
+  menuBurger: false,
+  search: '',
   hoverCard: [
     {
       backdrop: "/deLWkOLZmBNkm8p16igfapQyqeq.jpg",
@@ -38,5 +42,6 @@ export const useMovieStore = create<MovieState>((set) => ({
 
   setPopularFilter: (popular: any) => set(() => ({popularFilter: !popular})),
   setTopRatedFilter: (topRated: any) => set(() => ({topRatedFilter: !topRated})),
+  setSearch: (search: any) => set(() => ({search: search})),
 
 }));
