@@ -12,7 +12,6 @@ export const Navbar = () => {
   const menuBurger = useMenuBurgerStore((state) => state.menuBurger)
   const setMenuBurger = useMenuBurgerStore((state) => state.setMenuBurger)
   const setSearch = useMovieStore((state) => state.setSearch)
-  const search = useMovieStore((state) => state.search)
   const [value, setValue] = useState('')
 
   const handleChange = (e: any) => {
